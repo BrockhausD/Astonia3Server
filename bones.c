@@ -444,7 +444,8 @@ void exec_rune(int cn,int nr,int lastholder)
 						break;
 					}
 				}
-				if (n==25) log_char(cn,LOG_SYSTEM,0,"Nothing happened."); break;
+				if (n==25) log_char(cn,LOG_SYSTEM,0,"Nothing happened."); 
+				break;
 	}
         if (flag) rune_set(nr,ppd);	
 }

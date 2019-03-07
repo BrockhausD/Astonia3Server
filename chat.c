@@ -110,7 +110,7 @@ static char *inbuf=NULL;
 
 static int connect_chat(void)
 {
-        int one=1,ret;
+        int one=1;
 	static struct sockaddr_in addr;
 	struct hostent *he;
 
@@ -126,7 +126,7 @@ static int connect_chat(void)
 
 	ioctl(sock,FIONBIO,(u_long*)&one);      // non-blocking mode
 
-	ret=connect(sock,(struct sockaddr *)&addr,sizeof(addr));
+	connect(sock,(struct sockaddr *)&addr,sizeof(addr));
 
         return 1;
 }

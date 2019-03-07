@@ -251,7 +251,11 @@ void tunneldoor(int in,int cn)
 			
 			used=0;
 			for (x=1+xoff; x<32+xoff && !used; x++) {
+// GCC throws a warning here, that I do not understand. The code is fine, so I'll disable the warning.
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstrict-overflow"
                                 for (y=1+yoff; y<128+yoff && !used; y++) {
+#pragma GCC diagnostic pop
 					m=x+y*MAXMAP;
 					if ((co=map[m].ch) && (ch[co].flags&CF_PLAYER) && co!=cn) used=1;					
 				}

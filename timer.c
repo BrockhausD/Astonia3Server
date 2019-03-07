@@ -93,6 +93,8 @@ int set_timer(int due,void (*func)(int,int,int,int,int),int dat1,int dat2,int da
 
 // left from debugging. funny thing is: this one doesnt create a "unused" warning, even though it is unused.
 // it seems GNU-C doesnt notice this because it references itself. ts
+// by now (2019) gcc recognizes it. time to hide it
+#if 0
 static void display_queue(int step,int dum2,int dum3,int dum4,int dum5)
 {
 	struct timer *t;
@@ -103,6 +105,7 @@ static void display_queue(int step,int dum2,int dum3,int dum4,int dum5)
 
 	set_timer(ticker+step,display_queue,step,0,0,0,0);
 }
+#endif
 
 // called once per tick. fires due timers.
 void tick_timer(void)

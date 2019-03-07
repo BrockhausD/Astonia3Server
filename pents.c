@@ -205,12 +205,11 @@ static void solve_pents(int cc)
 
 static void add_pent(int cn,int in,int didsolve)
 {
-	int level,status,color,nr,n,same,lastcolor,value,worth;
+	int level,color,nr,n,same,lastcolor,value,worth;
 	struct pent_nppd *nppd;
 	static char *colortext[4]={"none","red","green","blue"};
 
 	level=*(unsigned char*)(it[in].drdata+0);
-	status=*(unsigned char*)(it[in].drdata+1);
 	color=*(unsigned char*)(it[in].drdata+2);
 	nr=*(unsigned char*)(it[in].drdata+3);
 	value=level*50+nr;
@@ -405,7 +404,7 @@ void pentenhance_char(int cn)
 
 void pent_driver(int in,int cn)
 {
-	int co,ser,level,n,status,color,cnt=0,nr,maxspawn,areastatus;
+	int co,ser,level,n,status,color,cnt=0,maxspawn,areastatus;
 	char name[80];
 
 	if (!init_done) {
@@ -416,7 +415,6 @@ void pent_driver(int in,int cn)
         level=*(unsigned char*)(it[in].drdata+0);
 	status=*(unsigned char*)(it[in].drdata+1);
 	color=*(unsigned char*)(it[in].drdata+2);
-	nr=*(unsigned char*)(it[in].drdata+3);
 	areastatus=*(unsigned char*)(it[in].drdata+4);
 
 	if (cn) {	// player activated pent

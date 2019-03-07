@@ -125,7 +125,7 @@ int init_lib(void)
 {
 	DIR *dir;
 	struct dirent *de;
-	char dirname[NAME_MAX],name[NAME_MAX];
+	char dirname[NAME_MAX+64],name[NAME_MAX+64];
 
 	libs=xcalloc(sizeof(struct lib)*MAXLIB,IM_BASE);
 	if (!libs) return 0;

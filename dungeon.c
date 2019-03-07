@@ -106,7 +106,7 @@ int analyse_text_driver(int cn,int type,char *text,int co)
 {
 	char word[256];
 	char wordlist[20][256];
-	int n,w,q,name=0;
+	int n,w,q;
 
 	// ignore game messages
 	if (type==LOG_SYSTEM || type==LOG_INFO) return 0;
@@ -140,7 +140,6 @@ int analyse_text_driver(int cn,int type,char *text,int co)
 						word[n]=0;
 						lowerstrcpy(wordlist[w],word);
 						if (strcasecmp(wordlist[w],ch[cn].name)) { if (w<20) w++; }
-						else name=1;
 					}					
 					n=0; text++;
 					break;
@@ -1296,7 +1295,7 @@ void immortal_dead(int cn,int co)
 
 void dungeonteleport(int in,int cn)
 {
-	int x,y,oldx,oldy,cnr;
+	int x,y,cnr;
 	char buf[80];
 
         if (!cn) return;	// always make sure its not an automatic call if you don't handle it
@@ -1312,7 +1311,6 @@ void dungeonteleport(int in,int cn)
 		return;
 	}
 
-        oldx=ch[cn].x; oldy=ch[cn].y;
 	remove_char(cn);
 	
 	if (!drop_char(cn,x,y,0) &&

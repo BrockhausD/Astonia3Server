@@ -238,7 +238,7 @@ void do_reload(void)
 	DIR *dir;
 	struct dirent *de;
 	struct stat st;
-	char name[128];
+	char name[NAME_MAX+64];
 	unsigned char buf[512];
 	int size,change,nr=0,tsize=0,n,handle,ret;
 	unsigned int sum;

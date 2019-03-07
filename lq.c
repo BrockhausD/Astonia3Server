@@ -1111,7 +1111,6 @@ int cost2skill(int v,int cost,int seyan)
 void lq_raise(int cn,int level)
 {
 	int spend,sum,cost;
-	double weight;
 	int n;
 
 	spend=level2exp(level+2)-1;
@@ -1139,7 +1138,6 @@ void lq_raise(int cn,int level)
 			case V_LIGHT:
 			case V_WEAPON:
 			case V_ARMOR:
-				weight=0;
 				continue;
 		}
 		if (!ch[cn].value[1][n]) continue;

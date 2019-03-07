@@ -1280,7 +1280,7 @@ static int fight_driver_attack_enemy(int cn,int co,int nomove,int nobless,int no
 {
         //static char *typename[]={"freeze","fireball","ball","flash","warcry","atttack","moveright","moveleft","moveup","movedown","regenerate","distance3","distance7","bless","earthrain","earthmud","heal","ms","pulse","attackback","flee","firering","max"};
 	struct task task[maxtasktype];
-        int maxvalue=0,maxtask=0,n,ret,cdist,tdist,sdist,tmp;
+        int maxvalue=0,maxtask=0,n,ret,cdist,tdist,tmp;
 	int sillyness=ch[cn].level/2+5,val;
 	struct fight_driver_data *dat;
 
@@ -1288,7 +1288,6 @@ static int fight_driver_attack_enemy(int cn,int co,int nomove,int nobless,int no
 
 	cdist=char_dist(cn,co);
 	tdist=tile_char_dist(cn,co);
-	sdist=step_char_dist(cn,co);
 
 	if (!nofreeze &&
 	    ch[cn].value[0][V_FREEZE]>1 &&
@@ -1534,7 +1533,8 @@ static int fight_driver_attack_enemy(int cn,int co,int nomove,int nobless,int no
 			     case attackback:		ret=attack_back_driver(cn,co); break;
 			     case flee:			if (cdist<8) ret=distance_driver(cn,co,8);
 							else { ret=0; error=ERR_ALREADY_THERE; }
-							if (!ret && error==ERR_ALREADY_THERE) ret=do_idle(cn,TICKS/4); break;
+							if (!ret && error==ERR_ALREADY_THERE) ret=do_idle(cn,TICKS/4); 
+							break;
 			     case firering:		ret=do_fireball(cn,ch[cn].x,ch[cn].y); break;
 
 

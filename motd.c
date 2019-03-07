@@ -50,6 +50,7 @@ int read_motd(void)
 		
 		len=lseek(handle,0,SEEK_END);
 		lseek(handle,0,SEEK_SET);
+
 		motd=xrealloc(motd,len+1,IM_BASE);
 		read(handle,motd,len); motd[len]=0;
 		close(handle);
