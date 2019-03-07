@@ -1,0 +1,12 @@
+.obj
+runtime
+zones
+start
+server
+MYSQLPASS        
+create_tables.sql        
+fk.txt        
+merc.sql        
+motd.txt        
+my        
+storage.sql
